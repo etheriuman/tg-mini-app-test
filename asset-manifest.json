@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tg-mini-app-test/static/css/main.f855e6bc.css",
-    "main.js": "/tg-mini-app-test/static/js/main.6bda7829.js",
+    "main.css": "/tg-mini-app-test/static/css/main.c99ca154.css",
+    "main.js": "/tg-mini-app-test/static/js/main.a13ab38f.js",
     "static/js/787.727f3335.chunk.js": "/tg-mini-app-test/static/js/787.727f3335.chunk.js",
-    "static/media/logo.svg": "/tg-mini-app-test/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/logo.png": "/tg-mini-app-test/static/media/logo.140516a933bc68f41c8c.png",
     "index.html": "/tg-mini-app-test/index.html",
-    "main.f855e6bc.css.map": "/tg-mini-app-test/static/css/main.f855e6bc.css.map",
-    "main.6bda7829.js.map": "/tg-mini-app-test/static/js/main.6bda7829.js.map",
+    "main.c99ca154.css.map": "/tg-mini-app-test/static/css/main.c99ca154.css.map",
+    "main.a13ab38f.js.map": "/tg-mini-app-test/static/js/main.a13ab38f.js.map",
     "787.727f3335.chunk.js.map": "/tg-mini-app-test/static/js/787.727f3335.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.6bda7829.js"
+    "static/css/main.c99ca154.css",
+    "static/js/main.a13ab38f.js"
   ]
 }
