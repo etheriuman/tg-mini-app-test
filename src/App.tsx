@@ -40,14 +40,13 @@ function App() {
             <img className="w-[200px]" src={logo} alt="logo" />
             <div className=" flex w-full flex-col items-center justify-center gap-5 px-5">
                 {products.map((product) => (
-                    <div className="flex items-center gap-5">
+                    <div className="flex items-center gap-5" key={product.id}>
                         <img
                             className="w-10 rounded-full"
                             src="https://media.giphy.com/media/VRKheDy4DkBMrQm66p/giphy.gif"
                             alt=""
                         />
                         <Button
-                            key={product.id}
                             buttonText={product.name}
                             onClickCallback={() =>
                                 handleProductBtnOnclick(product.name)
