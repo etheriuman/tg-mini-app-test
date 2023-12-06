@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/tg-mini-app-test/static/css/main.c99ca154.css",
-    "main.js": "/tg-mini-app-test/static/js/main.a13ab38f.js",
+    "main.js": "/tg-mini-app-test/static/js/main.b99d6fae.js",
     "static/js/787.727f3335.chunk.js": "/tg-mini-app-test/static/js/787.727f3335.chunk.js",
     "static/media/logo.png": "/tg-mini-app-test/static/media/logo.140516a933bc68f41c8c.png",
     "index.html": "/tg-mini-app-test/index.html",
     "main.c99ca154.css.map": "/tg-mini-app-test/static/css/main.c99ca154.css.map",
-    "main.a13ab38f.js.map": "/tg-mini-app-test/static/js/main.a13ab38f.js.map",
+    "main.b99d6fae.js.map": "/tg-mini-app-test/static/js/main.b99d6fae.js.map",
     "787.727f3335.chunk.js.map": "/tg-mini-app-test/static/js/787.727f3335.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c99ca154.css",
-    "static/js/main.a13ab38f.js"
+    "static/js/main.b99d6fae.js"
   ]
 }
