@@ -1,9 +1,9 @@
 <template>
     <div
         id="app"
-        class="flex h-screen max-h-screen w-screen flex-col justify-between"
+        class="top-0 flex h-screen max-h-screen w-screen flex-col justify-between"
     >
-        <div class="flex-grow overflow-auto">
+        <div class="flex-grow overflow-auto p-6">
             <router-view />
         </div>
         <Navigator v-show="isCurrentRootRoute" class="w-full" />
@@ -25,16 +25,11 @@ export default {
         $route(to, from) {
             console.log("to: ", to);
             console.log("from: ", from);
-            // if (to.matched[0] && to.matched[0].name === to.name) {
-            //     this.isCurrentRootRoute = true;
-            //     window.Telegram.WebApp.BackButton.hide();
-            // } else {
-            //     this.isCurrentRootRoute = false;
-            //     window.Telegram.WebApp.BackButton.show();
-            // }
             if (to.name !== "matches") {
+                this.isCurrentRootRoute = false;
                 window.Telegram.WebApp.BackButton.show();
             } else {
+                this.isCurrentRootRoute = true;
                 window.Telegram.WebApp.BackButton.hide();
             }
         },
@@ -56,16 +51,16 @@ export default {
                 // set theme colors
                 console.log("theme color: ", webApp.themeParams);
                 // webApp.showAlert("Hi from OCC");
-                webApp.showPopup({
-                    title: "popup",
-                    message: "message",
-                    buttons: [
-                        {
-                            type: "close",
-                            text: "text",
-                        },
-                    ],
-                });
+                // webApp.showPopup({
+                //     title: "popup",
+                //     message: "message",
+                //     buttons: [
+                //         {
+                //             type: "close",
+                //             text: "text",
+                //         },
+                //     ],
+                // });
                 // webApp.showConfirm("confirm now?", () => {
                 //     webApp.showAlert("CONFIRM");
                 // });

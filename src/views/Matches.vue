@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col items-center gap-8 p-6">
+    <div class="flex flex-col items-center gap-8">
         <!-- active matches -->
         <div class="flex w-full flex-col items-center gap-4">
             <router-link
@@ -20,9 +20,13 @@
                 >
                 <!-- match info -->
                 <div class="flex items-center gap-6">
-                    <span class="font-bold text-[#fff]">{{ match.white }}</span>
+                    <span class="text-lg font-bold italic text-[#fff]">{{
+                        match.white
+                    }}</span>
                     <span class="text-[#fff]">vs</span>
-                    <span class="font-bold text-[#fff]">{{ match.red }}</span>
+                    <span class="text-lg font-bold italic text-[#fff]">{{
+                        match.red
+                    }}</span>
                 </div>
                 <!-- bet button -->
                 <button
@@ -55,11 +59,11 @@
                     >
                     <!-- match info -->
                     <div class="flex items-center gap-6">
-                        <span class="font-bold text-[#fff]">{{
+                        <span class="text-lg font-bold italic text-[#fff]">{{
                             match.white
                         }}</span>
                         <span class="text-[#fff]">vs</span>
-                        <span class="font-bold text-[#fff]">{{
+                        <span class="text-lg font-bold italic text-[#fff]">{{
                             match.red
                         }}</span>
                     </div>
@@ -76,7 +80,7 @@ export default {
         matches: [
             {
                 id: 240202,
-                status: 0, // 0: 未開始可下注
+                status: 0, // 0: 未開始1可下注
                 startTime: "2022-08-09 20:00:00 UTC+0",
                 white: "Romans",
                 red: "Knights",
@@ -152,7 +156,7 @@ export default {
 .match-details {
     background-size: cover;
     background-position: center;
-    background-image: url("@/assets/imgs/views/bet/match-details-bg.png");
+    background-image: url("/public/assets/imgs/views/matches/match-bg.png");
 
     .info-tag {
         &.status-0,
@@ -170,10 +174,10 @@ export default {
     .match-btn {
         &.status-0,
         &.status-1 {
-            background: #26d738;
+            background: linear-gradient(92deg, #184cff 5.53%, #ff3838 94.47%);
         }
         &.status-2 {
-            background: linear-gradient(92deg, #184cff 5.53%, #ff3838 94.47%);
+            background: #26d738;
         }
     }
 }

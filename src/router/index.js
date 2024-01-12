@@ -18,7 +18,7 @@ const routes = [
     {
         path: "/matchdetails/:id",
         name: "match-details",
-        component: () => import("@/views/MatchDetails.vue"),
+        component: () => import("@/views/matchDetails/MatchDetails.vue"),
     },
     {
         path: "/record",
