@@ -1,62 +1,82 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+    <div
+        id="app"
+        class="flex h-screen max-h-screen w-screen flex-col justify-between"
+    >
+        <div class="flex-grow overflow-auto">
+            <router-view />
+        </div>
+        <Navigator v-show="isCurrentRootRoute" class="w-full" />
+    </div>
 </template>
 
 <script>
+import Navigator from "@/components/Navigator.vue";
+
 export default {
-  methods: {
-    tgInit() {
-      if (window.Telegram && window.Telegram.WebApp) {
-      const webApp = window.Telegram.WebApp;
-      console.log(window.Telegram.WebApp);
-      webApp.expand();
-      webApp.enableClosingConfirmation();
-      webApp.BackButton.show();
-      webApp.MainButton.show();
-      webApp.MainButton.setText("Greeting");
-      webApp.onEvent("mainButtonClicked", () => {
-          console.log("main button clicked");
-          webApp.showAlert("Hi from OCC");
-      });
-      webApp.onEvent("backButtonClicked", () => {
-          console.log("back button clicked");
-          webApp.close();
-      });
-      // set theme colors
-      console.log("theme color: ", webApp.themeParams);
-  } else {
-      console.error("Telegram or Telegram.WebApp is not available.");
-  }
-    }
-  }
-}
+    name: "App",
+    components: {
+        Navigator,
+    },
+    data: () => ({
+        isCurrentRootRoute: true,
+    }),
+    watch: {
+        $route(to, from) {
+            console.log("to: ", to);
+            console.log("from: ", from);
+            // if (to.matched[0] && to.matched[0].name === to.name) {
+            //     this.isCurrentRootRoute = true;
+            //     window.Telegram.WebApp.BackButton.hide();
+            // } else {
+            //     this.isCurrentRootRoute = false;
+            //     window.Telegram.WebApp.BackButton.show();
+            // }
+            if (to.name !== "matches") {
+                window.Telegram.WebApp.BackButton.show();
+            } else {
+                window.Telegram.WebApp.BackButton.hide();
+            }
+        },
+    },
+    methods: {
+        handleTelegramBackBtnClicked() {
+            window.Telegram.WebApp.onEvent("backButtonClicked", () => {
+                console.log("back button clicked");
+                // this.$router.push({ name: this.$route.matched[0].name });
+                this.$router.push({ name: "index" });
+            });
+        },
+        tgInit() {
+            if (window.Telegram && window.Telegram.WebApp) {
+                const webApp = window.Telegram.WebApp;
+                console.log(window.Telegram.WebApp);
+                webApp.expand();
+                webApp.enableClosingConfirmation();
+                // set theme colors
+                console.log("theme color: ", webApp.themeParams);
+                // webApp.showAlert("Hi from OCC");
+                webApp.showPopup({
+                    title: "popup",
+                    message: "message",
+                    buttons: [
+                        {
+                            type: "close",
+                            text: "text",
+                        },
+                    ],
+                });
+                // webApp.showConfirm("confirm now?", () => {
+                //     webApp.showAlert("CONFIRM");
+                // });
+            } else {
+                console.error("Telegram or Telegram.WebApp is not available.");
+            }
+        },
+    },
+    created() {
+        this.tgInit();
+        this.handleTelegramBackBtnClicked();
+    },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
